@@ -47,7 +47,9 @@ export default function Navbar() {
             Outcomes
           </Link>
           <LanguageSelector />
-          <Button className="bg-[#EA580C] hover:bg-orange-700 text-white">Sign Up</Button>
+          <Link href="/signup">
+            <Button className="bg-[#EA580C] hover:bg-orange-700 text-white">Get Access</Button>
+          </Link>
         </div>
 
         <div className="md:hidden flex items-center">
@@ -116,7 +118,9 @@ export default function Navbar() {
             >
               Outcomes
             </Link>
-            <Button className="w-full bg-[#EA580C] hover:bg-orange-700 text-white">Sign Up</Button>
+            <Link href="/signup">
+              <Button className="w-full bg-[#EA580C] hover:bg-orange-700 text-white">Sign Up</Button>
+            </Link>
           </div>
         </div>
       )}

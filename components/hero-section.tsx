@@ -1,13 +1,31 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 export default function HeroSection() {
+  const router = useRouter()
+
+  const handleRedirect = () => {
+    router.push("/signup")
+  }
+
   return (
-    <section className="relative h-screen flex items-center justify-center">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Blurred background with next/image */}
       <div className="absolute inset-0 z-0">
+        <div className="relative w-full h-full">
+          <Image
+            src="/bg.jpg"
+            alt="Crowded Varanasi street"
+            fill
+            className="object-cover blur-sm scale-105"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 bg-black/60 z-10"></div>
-        <img src="/placeholder.svg?key=xy67s" alt="Crowded Varanasi street" className="w-full h-full object-cover" />
       </div>
 
       <div className="container mx-auto px-4 z-20 text-center">
@@ -26,15 +44,23 @@ export default function HeroSection() {
         <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto mb-8">
           Discover hidden gullies, avoid crowds, and reach your destination peacefully.
         </p>
-        <Button className="bg-[#EA580C] hover:bg-orange-700 text-white text-lg px-8 py-6">
-          Sign Up for Early Access
+        <Button
+          onClick={handleRedirect}
+          className="bg-[#EA580C] hover:bg-orange-700 text-white text-lg px-8 py-6"
+        >
+          Get Access
           <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
       </div>
 
       {/* Floating Sign Up button for mobile */}
       <div className="md:hidden fixed bottom-6 right-6 z-50">
-        <Button className="bg-[#EA580C] hover:bg-orange-700 text-white rounded-full shadow-lg">Sign Up</Button>
+        <Button
+          onClick={handleRedirect}
+          className="bg-[#EA580C] hover:bg-orange-700 text-white rounded-full shadow-lg"
+        >
+          Sign Up
+        </Button>
       </div>
     </section>
   )
