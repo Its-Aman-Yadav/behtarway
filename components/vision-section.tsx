@@ -6,15 +6,27 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const images = [
   {
-    src: "/placeholder.svg?key=yu9m6",
+    src: "/images/vision.png",
     alt: "Quiet shaded gully in Varanasi",
   },
   {
-    src: "/placeholder.svg?key=ja1i8",
+    src: "/images/second.png",
     alt: "Peaceful narrow lane in Varanasi",
   },
   {
-    src: "/placeholder.svg?key=99qc1",
+    src: "/images/third.png",
+    alt: "Hidden pathway in Varanasi",
+  },
+    {
+    src: "/images/fourth.png",
+    alt: "Hidden pathway in Varanasi",
+  },
+    {
+    src: "/images/fifth.png",
+    alt: "Hidden pathway in Varanasi",
+  },
+    {
+    src: "/images/sixth.png",
     alt: "Hidden pathway in Varanasi",
   },
 ]
@@ -33,7 +45,7 @@ export default function VisionSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextImage()
-    }, 5000)
+    }, 3000) // Changed to 3 seconds
     return () => clearInterval(interval)
   }, [])
 
@@ -61,7 +73,7 @@ export default function VisionSection() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-background-dark rounded-full"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-900 rounded-full"
             onClick={prevImage}
           >
             <ChevronLeft className="h-6 w-6" />
@@ -70,16 +82,29 @@ export default function VisionSection() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-background-dark rounded-full"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-900 rounded-full"
             onClick={nextImage}
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
+
+          {/* Carousel indicators */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentImage ? "bg-white" : "bg-white/50"
+                }`}
+                onClick={() => setCurrentImage(index)}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-[#EA580C]/10 flex items-center justify-center mb-4">
+            <div className="w-20 h-20 rounded-full bg-orange-600/10 flex items-center justify-center mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -100,7 +125,7 @@ export default function VisionSection() {
           </div>
 
           <div className="flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-[#EA580C]/10 flex items-center justify-center mb-4">
+            <div className="w-20 h-20 rounded-full bg-orange-600/10 flex items-center justify-center mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -120,7 +145,7 @@ export default function VisionSection() {
           </div>
 
           <div className="flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-[#EA580C]/10 flex items-center justify-center mb-4">
+            <div className="w-20 h-20 rounded-full bg-orange-600/10 flex items-center justify-center mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"

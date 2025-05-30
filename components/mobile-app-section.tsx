@@ -9,6 +9,14 @@ import Image from "next/image"
 export default function MobileAppSection() {
   const [activeTab, setActiveTab] = useState("navigation")
 
+  // Define images for each tab
+  const tabImages = {
+    navigation: "/images/navigation.jpg",
+    crowd: "/images/discovery.jpg",
+    alerts: "/images/crowdmap.jpg",
+    discovery: "/images/crowdmap.jpg",
+  }
+
   return (
     <section id="mobile-app" className="py-20 bg-background-dark text-white border-t border-white/10">
       <div className="container mx-auto px-4">
@@ -161,12 +169,14 @@ export default function MobileAppSection() {
                 <div className="pt-4 px-2 bg-black">
                   <div className="w-32 h-6 mx-auto bg-gray-800 rounded-full mb-2"></div>
                 </div>
-                <img
-                  src="/placeholder.svg?key=69iiw"
-                  alt="Behtar-Way Mobile App Interface"
-                  className="w-full aspect-[9/16] object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black to-transparent"></div>
+                <div className="relative overflow-hidden">
+                  <img
+                    src={tabImages[activeTab as keyof typeof tabImages] || "/placeholder.svg"}
+                    alt={`Behtar-Way Mobile App - ${activeTab} interface`}
+                    className="w-full aspect-[9/16] object-cover transition-all duration-500 ease-in-out"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black to-transparent"></div>
+                </div>
               </div>
             </div>
           </div>

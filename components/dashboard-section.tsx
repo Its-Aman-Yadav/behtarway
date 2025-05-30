@@ -9,6 +9,14 @@ import Image from "next/image"
 export default function DashboardSection() {
   const [activeTab, setActiveTab] = useState("analytics")
 
+  // Define specific dashboard images for each tab
+  const tabImages = {
+    analytics: "/images/dashboard.png",
+    monitoring: "/images/monitoring.png",
+    planning: "/images/planning.png",
+    management: "/images/management.png",
+  }
+
   return (
     <section id="dashboard" className="py-20 bg-background-dark text-white border-t border-white/10">
       <div className="container mx-auto px-4">
@@ -37,13 +45,18 @@ export default function DashboardSection() {
                 <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-                <div className="ml-4 text-sm text-gray-400">City Walkability Sense Dashboard</div>
+                <div className="ml-4 text-sm text-gray-400">
+                  City Walkability Sense Dashboard - {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
+                </div>
               </div>
-              <img
-                src={`/placeholder.svg?height=600&width=800&query=city+dashboard+interface+with+heatmap+of+crowd+movement+in+Varanasi+with+data+visualization`}
-                alt="City Walkability Sense Dashboard"
-                className="w-full aspect-[16/9] object-cover"
-              />
+              <div className="relative overflow-hidden">
+                <img
+                  src={tabImages[activeTab as keyof typeof tabImages] || "/placeholder.svg"}
+                  alt={`City Walkability Sense Dashboard - ${activeTab} view`}
+                  className="w-full aspect-[16/9] object-cover transition-all duration-500 ease-in-out"
+                />
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
+              </div>
             </div>
           </div>
 

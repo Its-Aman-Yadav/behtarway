@@ -12,7 +12,7 @@ export default function OutcomesSection() {
           <div className="overflow-hidden rounded-lg shadow-lg">
             <div className="relative aspect-square">
               <img
-                src="/placeholder.svg?key=e52by"
+                src="/images/family.png"
                 alt="Family walking peacefully"
                 className="w-full h-full object-cover"
               />
@@ -25,7 +25,7 @@ export default function OutcomesSection() {
           <div className="overflow-hidden rounded-lg shadow-lg">
             <div className="relative aspect-square">
               <img
-                src="/placeholder.svg?key=ml7dk"
+                src="/images/shop.png"
                 alt="Shopkeeper smiling at new footfall"
                 className="w-full h-full object-cover"
               />
@@ -38,7 +38,7 @@ export default function OutcomesSection() {
           <div className="overflow-hidden rounded-lg shadow-lg">
             <div className="relative aspect-square">
               <img
-                src="/placeholder.svg?key=ta3tm"
+                src="/images/guide.png"
                 alt="LED screen at a busy junction"
                 className="w-full h-full object-cover"
               />
@@ -51,7 +51,7 @@ export default function OutcomesSection() {
           <div className="overflow-hidden rounded-lg shadow-lg">
             <div className="relative aspect-square">
               <img
-                src="/placeholder.svg?key=rtsiy"
+                src="/images/admin.png"
                 alt="Control room heatmap interface"
                 className="w-full h-full object-cover"
               />

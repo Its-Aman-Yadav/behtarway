@@ -7,7 +7,7 @@ export default function ProblemSection() {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="relative aspect-video overflow-hidden rounded-lg shadow-xl">
             <img
-              src="/placeholder.svg?key=d2x62"
+              src="/images/standard.png" 
               alt="Google Maps with few paths"
               className="w-full h-full object-cover"
             />
@@ -17,7 +17,7 @@ export default function ProblemSection() {
           </div>
 
           <div className="relative aspect-video overflow-hidden rounded-lg shadow-xl">
-            <img src="/placeholder.svg?key=eg33o" alt="Dense local lane map" className="w-full h-full object-cover" />
+            <img src="/images/hidden.png"  alt="Dense local lane map" className="w-full h-full object-cover" />
             <div className="absolute bottom-0 left-0 bg-black/70 text-white p-3 text-sm">
               Reality: Hundreds of Hidden Paths
             </div>
