@@ -6,11 +6,17 @@ import LanguageSelector from "./language-selector"
 import Link from "next/link"
 import Image from "next/image"
 
-export default function Navbar() {
+interface NavbarProps {
+  bannerDismissed?: boolean
+}
+
+export default function Navbar({ bannerDismissed = false }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background-dark/90 backdrop-blur-md">
+    <nav className={`fixed w-full z-50 bg-background-dark/90 backdrop-blur-md transition-all duration-300 ${
+      bannerDismissed ? 'top-0' : 'top-12'
+    }`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
