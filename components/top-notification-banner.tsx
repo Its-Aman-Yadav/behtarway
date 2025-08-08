@@ -19,12 +19,13 @@ export default function TopNotificationBanner({ onDismiss }: TopNotificationBann
   if (!isVisible) return null
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-orange-500 via-red-500 to-orange-600 text-white py-3 px-4 overflow-hidden shadow-lg transition-all duration-300">
-      {/* Animated background elements */}
+    <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-orange-500 via-red-500 to-orange-600 text-white py-2 md:py-3 px-2 md:px-4 overflow-hidden shadow-lg transition-all duration-300">
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/10"></div>
-      {/* Floating sparkles animation */}
+
+      {/* Floating sparkles animation (less on mobile for performance) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(typeof window !== "undefined" && window.innerWidth < 640 ? 6 : 12)].map((_, i) => (
           <div
             key={i}
             className="absolute animate-float"
@@ -35,16 +36,17 @@ export default function TopNotificationBanner({ onDismiss }: TopNotificationBann
               animationDuration: `${3 + Math.random() * 2}s`
             }}
           >
-            <Sparkles className="h-3 w-3 text-yellow-300 opacity-80" />
+            <Sparkles className="h-2.5 w-2.5 md:h-3 md:w-3 text-yellow-300 opacity-80" />
           </div>
         ))}
       </div>
-      {/* Falling confetti particles */}
+
+      {/* Falling confetti */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(typeof window !== "undefined" && window.innerWidth < 640 ? 10 : 20)].map((_, i) => (
           <div
             key={`confetti-${i}`}
-            className="absolute w-2 h-2 animate-fall"
+            className="absolute w-1.5 h-1.5 md:w-2 md:h-2 animate-fall"
             style={{
               left: `${Math.random() * 100}%`,
               backgroundColor: ['#fbbf24', '#f59e0b', '#d97706', '#92400e', '#fde047', '#facc15'][Math.floor(Math.random() * 6)],
@@ -56,36 +58,46 @@ export default function TopNotificationBanner({ onDismiss }: TopNotificationBann
           />
         ))}
       </div>
-      {/* One-line, centered content */}
-      <div className="container mx-auto relative z-10 flex items-center justify-center w-full">
-        <Trophy className="h-6 w-6 text-yellow-300 animate-pulse mr-2 flex-shrink-0" />
-        <span className="inline-block animate-pulse text-base md:text-lg mr-2">🎉</span>
-        <span className="text-yellow-200 font-extrabold text-base md:text-lg mr-2">Proud Moment:</span>
-        <span className="text-sm md:text-base lg:text-lg font-bold leading-tight text-center mx-2 whitespace-nowrap">
-          BehtarWay selected as Top 5 Finalist in{" "}
-          <a
-            href="https://sustainablecitieschallenge.org/varanasi"
-            className="text-white underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Toyota's Varanasi Sustainable Cities Challenge
-          </a>
-        </span>
-        <span className="inline-block animate-pulse text-base md:text-lg ml-2">🏆</span>
+
+      {/* Content */}
+      <div className="container mx-auto relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-center text-center sm:text-left gap-1 sm:gap-2">
+        <div className="flex items-center justify-center flex-shrink-0">
+          <Trophy className="h-5 w-5 md:h-6 md:w-6 text-yellow-300 animate-pulse mr-1 sm:mr-2" />
+          <span className="inline-block animate-pulse text-sm md:text-base">🎉</span>
+        </div>
+
+<div className="flex flex-wrap items-center justify-center text-xs sm:text-sm md:text-base leading-tight gap-1 font-bold">
+  <span className="text-yellow-200 font-extrabold">Proud Moment:</span>
+  <span>
+    BehtarWay selected as one of the Top 5 Finalists by Toyota for{" "}
+    <a
+      href="https://sustainablecitieschallenge.org/varanasi"
+      className="text-white underline font-extrabold"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Sustainable Cities Challenge Varanasi
+    </a>
+  </span>
+  <span className="inline-block animate-pulse">🏆</span>
+</div>
+
+
         <Button
           variant="ghost"
           size="sm"
           onClick={handleDismiss}
-          className="text-white hover:bg-white/20 h-8 w-8 p-0 ml-2 flex-shrink-0"
+          className="text-white hover:bg-white/20 h-7 w-7 p-0 sm:ml-2 flex-shrink-0 absolute sm:relative top-1 right-1 sm:top-auto sm:right-auto"
           aria-label="Dismiss notification"
         >
           <X className="h-4 w-4" />
         </Button>
       </div>
-      {/* Animated border */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-orange-300 to-yellow-400 animate-pulse"></div>
-      {/* Custom CSS for animations */}
+
+      {/* Bottom border */}
+      <div className="absolute bottom-0 left-0 w-full h-0.5 md:h-1 bg-gradient-to-r from-yellow-400 via-orange-300 to-yellow-400 animate-pulse"></div>
+
+      {/* Animations */}
       <style jsx>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
