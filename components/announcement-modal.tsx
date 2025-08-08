@@ -125,7 +125,7 @@ export default function AnnouncementModal() {
                       {"Toyota's Varanasi Sustainable Cities Challenge"}
                     </p>
                     <p className="text-sm font-bold text-green-600 animate-pulse">
-                      🏆 Awarded $130,000 Grant 🏆
+                      🏆 Awarded $180,000 Grant 🏆
                     </p>
                   </div>
                 </div>
