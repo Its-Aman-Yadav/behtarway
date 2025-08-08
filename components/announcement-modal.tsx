@@ -1,34 +1,25 @@
 "use client"
 
 import { useState } from "react"
-import { Trophy, Star, Award, DollarSign, Users, Sparkles, X } from 'lucide-react'
+import { Trophy, Star, Award, DollarSign, Users, Sparkles, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 export default function AnnouncementModal() {
   const [isOpen, setIsOpen] = useState(true)
 
-  const handleClose = () => {
-    setIsOpen(false)
-  }
-
-  // Prevent closing when clicking outside - only allow manual close
-  const handleOpenChange = (open: boolean) => {
-    // Don't allow the dialog to close automatically
-    // Only allow closing through the handleClose function
-    return
-  }
+  const handleClose = () => setIsOpen(false)
 
   return (
     <>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Semi-transparent backdrop */}
+          {/* Backdrop */}
           <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" />
 
-          {/* Modal content */}
-          <div className="relative z-50 sm:max-w-lg w-[95vw] max-h-[80vh] flex flex-col bg-white rounded-lg shadow-2xl border">
-            {/* Close button - positioned absolutely */}
+          {/* Modal */}
+          <div className="relative z-50 sm:max-w-lg w-[95vw] max-h-[80vh] flex flex-col bg-white rounded-lg shadow-2xl border overflow-hidden">
+            {/* Close */}
             <Button
               variant="ghost"
               size="sm"
@@ -38,7 +29,7 @@ export default function AnnouncementModal() {
               <X className="h-3 w-3" />
             </Button>
 
-            {/* Animated background sparkles */}
+            {/* Floating sparkles */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-lg">
               {[...Array(6)].map((_, i) => (
                 <div
@@ -48,7 +39,7 @@ export default function AnnouncementModal() {
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
                     animationDelay: `${Math.random() * 2}s`,
-                    animationDuration: `${4 + Math.random() * 2}s`
+                    animationDuration: `${4 + Math.random() * 2}s`,
                   }}
                 >
                   <Sparkles className="h-4 w-4 text-orange-400" />
@@ -56,44 +47,62 @@ export default function AnnouncementModal() {
               ))}
             </div>
 
-            {/* Header - Fixed */}
-            <div className="flex-shrink-0 p-4 pb-2 relative z-10">
-              <div className="mb-3">
-                <div className="flex items-center justify-center mb-3">
-                  <div className="relative">
-                    <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-full p-3 animate-pulse">
-                      <Trophy className="h-6 w-6 text-white" />
-                    </div>
-                    <div className="absolute -top-1 -right-1 bg-yellow-400 rounded-full p-1 animate-bounce">
-                      <Star className="h-3 w-3 text-orange-600" />
-                    </div>
-                    {/* Pulsing rings */}
-                    <div className="absolute inset-0 rounded-full border-2 border-yellow-400 animate-ping opacity-75"></div>
-                    <div className="absolute inset-0 rounded-full border border-orange-300 animate-pulse"></div>
-                  </div>
-                </div>
-                <h2 className="text-center text-lg font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent animate-pulse">
-                  🎉 PROUD MOMENT! 🎉
-                </h2>
-              </div>
+            {/* Header */}
+{/* Header */}
+<div className="flex-shrink-0 p-4 pb-2 relative z-10">
+  <div className="mb-3">
+    <div className="flex items-center justify-between mb-3">
+      {/* Banner image on the left */}
+      <Image
+        src="banner.jpg"
+        alt="Banner"
+        width={150}
+        height={150}
+        className="rounded-md shadow-md"
+        priority
+      />
 
-              {/* Achievement badges */}
-              <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
-                <div className="flex items-center gap-1 bg-gradient-to-r from-orange-50 to-orange-100 px-2 py-1 rounded-full border border-orange-200 animate-bounce">
-                  <Award className="h-3 w-3 text-orange-600" />
-                  <span className="text-xs font-bold text-orange-700">Top 5 Finalist</span>
-                </div>
-                <div className="flex items-center gap-1 bg-gradient-to-r from-green-50 to-green-100 px-2 py-1 rounded-full border border-green-200 animate-bounce" style={{ animationDelay: '0.2s' }}>
-                  <DollarSign className="h-3 w-3 text-green-600" />
-                  <span className="text-xs font-bold text-green-700">$130,000 Grant</span>
-                </div>
-              </div>
-            </div>
+      {/* Trophy centered */}
+      <div className="absolute left-1/2 -translate-x-1/2">
+        <div className="relative">
+          <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-full p-3 animate-pulse">
+            <Trophy className="h-6 w-6 text-white" />
+          </div>
+          <div className="absolute -top-1 -right-1 bg-yellow-400 rounded-full p-1 animate-bounce">
+            <Star className="h-3 w-3 text-orange-600" />
+          </div>
+          <div className="absolute inset-0 rounded-full border-2 border-yellow-400 animate-ping opacity-75"></div>
+          <div className="absolute inset-0 rounded-full border border-orange-300 animate-pulse"></div>
+        </div>
+      </div>
+    </div>
 
-            {/* Scrollable Content */}
+    <h2 className="text-center text-lg font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent animate-pulse">
+      🎉 PROUD MOMENT! 🎉
+    </h2>
+  </div>
+
+  {/* Badges */}
+  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+    <div className="flex items-center gap-1 bg-gradient-to-r from-orange-50 to-orange-100 px-2 py-1 rounded-full border border-orange-200 animate-bounce">
+      <Award className="h-3 w-3 text-orange-600" />
+      <span className="text-xs font-bold text-orange-700">Top 5 Finalist</span>
+    </div>
+    <div
+      className="flex items-center gap-1 bg-gradient-to-r from-green-50 to-green-100 px-2 py-1 rounded-full border border-green-200 animate-bounce"
+      style={{ animationDelay: "0.2s" }}
+    >
+      <DollarSign className="h-3 w-3 text-green-600" />
+      <span className="text-xs font-bold text-green-700">$130,000 Grant</span>
+    </div>
+  </div>
+</div>
+
+
+            {/* Body */}
             <div className="flex-1 overflow-y-auto px-4 pb-4 relative z-10">
               <div className="space-y-4">
-                {/* Main VOGIC AI announcement image */}
+                {/* Main announcement image */}
                 <div className="w-full relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-200 to-red-200 rounded-lg blur-sm opacity-30 animate-pulse"></div>
                   <Image
@@ -106,7 +115,7 @@ export default function AnnouncementModal() {
                   />
                 </div>
 
-                {/* Compact text content */}
+                {/* Text */}
                 <div className="text-center space-y-3">
                   <div className="space-y-2">
                     <h3 className="text-base font-bold text-gray-900">
@@ -121,7 +130,7 @@ export default function AnnouncementModal() {
                   </div>
                 </div>
 
-                {/* All finalists section */}
+                {/* Finalists collage */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-center gap-2">
                     <Users className="h-4 w-4 text-gray-600 animate-bounce" />
@@ -141,7 +150,7 @@ export default function AnnouncementModal() {
               </div>
             </div>
 
-            {/* Footer buttons - Fixed */}
+            {/* Footer */}
             <div className="flex-shrink-0 p-4 pt-2 relative z-10">
               <div className="flex gap-2">
                 <Button
@@ -151,6 +160,7 @@ export default function AnnouncementModal() {
                 >
                   Continue to Website
                 </Button>
+
                 <a
                   href="https://sustainablecitieschallenge.org/varanasi"
                   target="_blank"
@@ -159,17 +169,15 @@ export default function AnnouncementModal() {
                 >
                   🚀 Learn More
                 </a>
-
               </div>
             </div>
 
-            {/* Custom CSS for modal animations */}
+            {/* Animations */}
             <style jsx>{`
               @keyframes float-slow {
                 0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
                 50% { transform: translateY(-15px) rotate(180deg); opacity: 0.7; }
               }
-              
               .animate-float-slow {
                 animation: float-slow 5s ease-in-out infinite;
               }
