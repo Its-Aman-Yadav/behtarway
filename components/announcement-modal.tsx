@@ -93,7 +93,7 @@ export default function AnnouncementModal() {
       style={{ animationDelay: "0.2s" }}
     >
       <DollarSign className="h-3 w-3 text-green-600" />
-      <span className="text-xs font-bold text-green-700">$130,000 Grant</span>
+      <span className="text-xs font-bold text-green-700">$180,000 Grant</span>
     </div>
   </div>
 </div>
