@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="flex justify-center space-x-4">
           {/* Facebook */}
           <Link
-            href="https://www.facebook.com/vogicai"
+            href="https://www.facebook.com/people/Behtar-Way/61579253068383/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"
