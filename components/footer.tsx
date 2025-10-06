@@ -31,7 +31,13 @@ export default function Footer() {
         </div>
 
         <div className="flex justify-center space-x-4">
-          <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+          {/* Facebook */}
+          <Link
+            href="https://www.facebook.com/vogicai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -46,7 +52,14 @@ export default function Footer() {
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
             </svg>
           </Link>
-          <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+
+          {/* Instagram */}
+          <Link
+            href="https://www.instagram.com/behtarway/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -63,7 +76,14 @@ export default function Footer() {
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
           </Link>
-          <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+
+          {/* LinkedIn */}
+          <Link
+            href="https://www.linkedin.com/company/behtar-way/posts/?feedView=all"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -79,6 +99,7 @@ export default function Footer() {
             </svg>
           </Link>
         </div>
+
       </div>
     </footer>
   )
