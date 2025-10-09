@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   keywords: [
     'Behtar Way',
     'Behtar‑Way',
+    'behtarway',
+    'behtar-way',
     'Varanasi navigation app',
     'pedestrian navigation Varanasi',
     'crowd management Kashi',
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
     'VOGIC AI Behtar Way',
     'hidden lanes Kashi'
   ],
+
   authors: [{ name: 'VOGIC AI / Behtar‑Way Team', url: 'https://behtarway.com' }],
   applicationName: 'Behtar‑Way',
   referrer: 'origin-when-cross-origin',
@@ -52,6 +55,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'SoftwareApplication',
               name: 'Behtar‑Way',
+              alternateName: 'behtarway',
               operatingSystem: 'Web / Android',
               applicationCategory: 'NavigationApplication',
               url: 'https://behtarway.com/',
@@ -62,6 +66,7 @@ export default function RootLayout({
             }),
           }}
         />
+
       </head>
       <body>{children}</body>
     </html>
